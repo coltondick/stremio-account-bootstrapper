@@ -58,7 +58,9 @@ export async function configureStremThruStore(
       const errorMsg = error instanceof Error ? error.message : String(error);
       if (!shouldClone) {
         delete presetConfig.stremthrustore;
-        throw new Error(`StremThru Store configuration failed for ${debrid.service}: ${errorMsg}`);
+        throw new Error(
+          `StremThru Store configuration failed for ${debrid.service}: ${errorMsg}`
+        );
       }
       errors.push(`${debrid.service}: ${errorMsg}`);
     }
@@ -66,7 +68,9 @@ export async function configureStremThruStore(
 
   // If all configurations failed in clone mode, throw an error
   if (shouldClone && errors.length === debridEntries.length) {
-    throw new Error(`StremThru Store: All configurations failed - ${errors.join('; ')}`);
+    throw new Error(
+      `StremThru Store: All configurations failed - ${errors.join('; ')}`
+    );
   }
 
   return shouldClone

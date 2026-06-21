@@ -13,23 +13,23 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
-import { SunIcon, MoonIcon } from "@heroicons/vue/24/outline";
+import { onMounted } from 'vue';
+import { SunIcon, MoonIcon } from '@heroicons/vue/24/outline';
 
 function toggleTheme(event) {
-  const theme = event.target.checked ? "dark" : "light";
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
+  const theme = event.target.checked ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
 }
 
 onMounted(() => {
-  const savedTheme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", savedTheme);
+  const savedTheme = localStorage.getItem('theme') || 'light';
+  document.documentElement.setAttribute('data-theme', savedTheme);
 
   // Set the checkbox state based on saved theme
-  const checkbox = document.querySelector(".theme-controller");
+  const checkbox = document.querySelector('.theme-controller');
   if (checkbox) {
-    checkbox.checked = savedTheme === "dark";
+    checkbox.checked = savedTheme === 'dark';
   }
 });
 </script>
