@@ -9,8 +9,8 @@ WORKDIR /app
 # Copy dependency files first for better layer caching
 COPY package.json pnpm-lock.yaml ./
 
-# Install dependencies
-RUN pnpm install --frozen-lockfile
+# Install dependencies (ignore-scripts to skip husky setup which needs .git)
+RUN pnpm install --frozen-lockfile --ignore-scripts
 
 # Copy source code
 COPY . .
